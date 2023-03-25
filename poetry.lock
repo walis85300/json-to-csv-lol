@@ -75,9 +75,9 @@ python-versions = "*"
 test = ["flake8 (==3.7.8)", "hypothesis (==3.55.3)"]
 
 [[package]]
-name = "more-itertools"
-version = "9.1.0"
-description = "More routines for operating on iterables, beyond itertools"
+name = "iniconfig"
+version = "2.0.0"
+description = "brain-dead simple config-ini parsing"
 category = "dev"
 optional = false
 python-versions = ">=3.7"
@@ -108,7 +108,7 @@ python-versions = ">=3.7"
 
 [[package]]
 name = "platformdirs"
-version = "3.1.1"
+version = "3.2.0"
 description = "A small Python package for determining appropriate platform-specific dirs, e.g. a \"user data dir\"."
 category = "dev"
 optional = false
@@ -116,18 +116,19 @@ python-versions = ">=3.7"
 
 [package.extras]
 docs = ["furo (>=2022.12.7)", "proselint (>=0.13)", "sphinx-autodoc-typehints (>=1.22,!=1.23.4)", "sphinx (>=6.1.3)"]
-test = ["appdirs (==1.4.4)", "covdefaults (>=2.2.2)", "pytest-cov (>=4)", "pytest-mock (>=3.10)", "pytest (>=7.2.1)"]
+test = ["appdirs (==1.4.4)", "covdefaults (>=2.3)", "pytest-cov (>=4)", "pytest-mock (>=3.10)", "pytest (>=7.2.2)"]
 
 [[package]]
 name = "pluggy"
-version = "0.13.1"
+version = "1.0.0"
 description = "plugin and hook calling mechanisms for python"
 category = "dev"
 optional = false
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+python-versions = ">=3.6"
 
 [package.extras]
 dev = ["pre-commit", "tox"]
+testing = ["pytest", "pytest-benchmark"]
 
 [[package]]
 name = "polars"
@@ -175,24 +176,23 @@ plugins = ["importlib-metadata"]
 
 [[package]]
 name = "pytest"
-version = "5.4.3"
+version = "6.2.5"
 description = "pytest: simple powerful testing with Python"
 category = "dev"
 optional = false
-python-versions = ">=3.5"
+python-versions = ">=3.6"
 
 [package.dependencies]
 atomicwrites = {version = ">=1.0", markers = "sys_platform == \"win32\""}
-attrs = ">=17.4.0"
+attrs = ">=19.2.0"
 colorama = {version = "*", markers = "sys_platform == \"win32\""}
-more-itertools = ">=4.0.0"
+iniconfig = "*"
 packaging = "*"
-pluggy = ">=0.12,<1.0"
-py = ">=1.5.0"
-wcwidth = "*"
+pluggy = ">=0.12,<2.0"
+py = ">=1.8.2"
+toml = "*"
 
 [package.extras]
-checkqa-mypy = ["mypy (==v0.761)"]
 testing = ["argcomplete", "hypothesis (>=3.56)", "mock", "nose", "requests", "xmlschema"]
 
 [[package]]
@@ -225,6 +225,14 @@ description = "Tool to Detect Surrounding Shell"
 category = "main"
 optional = false
 python-versions = ">=3.7"
+
+[[package]]
+name = "toml"
+version = "0.10.2"
+description = "Python Library for Tom's Obvious, Minimal Language"
+category = "dev"
+optional = false
+python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
 
 [[package]]
 name = "tomli"
@@ -270,18 +278,10 @@ category = "dev"
 optional = false
 python-versions = "*"
 
-[[package]]
-name = "wcwidth"
-version = "0.2.6"
-description = "Measures the displayed width of unicode strings in a terminal"
-category = "dev"
-optional = false
-python-versions = "*"
-
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "d6789ffe37470686101a519e6b565412704d16f564a3eaa25dc57b043d5b284c"
+content-hash = "9c5f3c9c2ea6e978464d94d7b46cd0a441e91141cb9dfe70f6d01c7a06e8e3f0"
 
 [metadata.files]
 atomicwrites = []
@@ -293,24 +293,33 @@ click = [
 ]
 colorama = []
 commonmark = []
-more-itertools = []
+iniconfig = []
 mypy-extensions = []
 packaging = []
 pathspec = []
 platformdirs = []
-pluggy = []
+pluggy = [
+    {file = "pluggy-1.0.0-py2.py3-none-any.whl", hash = "sha256:74134bbf457f031a36d68416e1509f34bd5ccc019f0bcc952c7b909d06b37bd3"},
+    {file = "pluggy-1.0.0.tar.gz", hash = "sha256:4224373bacce55f955a878bf9cfa763c1e360858e330072059e10bad68531159"},
+]
 polars = []
 py = [
     {file = "py-1.11.0-py2.py3-none-any.whl", hash = "sha256:607c53218732647dff4acdfcd50cb62615cedf612e72d1724fb1a0cc6405b378"},
     {file = "py-1.11.0.tar.gz", hash = "sha256:51c75c4126074b472f746a24399ad32f6053d1b34b68d2fa41e558e6f4a98719"},
 ]
 pygments = []
-pytest = []
+pytest = [
+    {file = "pytest-6.2.5-py3-none-any.whl", hash = "sha256:7310f8d27bc79ced999e760ca304d69f6ba6c6649c0b60fb0e04a4a77cacc134"},
+    {file = "pytest-6.2.5.tar.gz", hash = "sha256:131b36680866a76e6781d13f101efb86cf674ebb9762eb70d3082b6f29889e89"},
+]
 rich = []
 ruff = []
 shellingham = []
+toml = [
+    {file = "toml-0.10.2-py2.py3-none-any.whl", hash = "sha256:806143ae5bfb6a3c6e736a764057db0e6a0e05e338b5630894a5f779cabb4f9b"},
+    {file = "toml-0.10.2.tar.gz", hash = "sha256:b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f"},
+]
 tomli = []
 typer = []
 typing-extensions = []
 unittest = []
-wcwidth = []

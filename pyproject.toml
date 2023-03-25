@@ -15,10 +15,9 @@ typer = {extras = ["all"], version = "^0.7.0"}
 polars = "^0.16.16"
 
 [tool.poetry.dev-dependencies]
-pytest = "^5.2"
+pytest = "^6.2"
 ruff = "^0.0.259"
 black = "^23.1.0"
-unittest = "^0.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
