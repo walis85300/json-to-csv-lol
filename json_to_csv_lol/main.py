@@ -9,18 +9,21 @@ from .converter import convert as convert_json
 app = typer.Typer()
 
 
-def checK_input(input: Path):
+def check_input(input: Path):
     """
     Check if the input file is a valid input
     """
     if not input.exists():
-        raise typer.Abort('File does not exist')
+        print('File does not exist')
+        raise typer.Abort()
 
     if not input.is_file():
-        raise typer.Abort('It is not a file')
+        print('It is not a file')
+        raise typer.Abort()
 
     if not input.suffix == '.json':
-        raise typer.Abort('It is not a json file')
+        print('It is not a json file')
+        raise typer.Abort()
 
 
 def check_output(path: Path):
@@ -28,6 +31,7 @@ def check_output(path: Path):
     Check is the output path is a valid dir
     """
     if not path.is_dir():
+        print('Output path is not a dir')
         raise typer.Abort()
 
 
@@ -40,7 +44,7 @@ def convert(
     Convert the JSON file into a CSV
     """
 
-    checK_input(input_file)
+    check_input(input_file)
     check_output(output_path)
 
     filename = input_file.stem
@@ -53,3 +57,5 @@ def convert(
         convert_json(input_file, output_file)
     except Exception as e:
         raise typer.Abort()
+
+    print('Successfuly converted!')
