@@ -1,12 +1,13 @@
 [tool.poetry]
 name = "json-to-csv-lol"
-version = "0.1.0"
+version = "0.1.2"
 description = ""
 authors = ["Eduardo Alvarez <walojose46@gmail.com>"]
 readme = 'README.md'
+repository = "https://github.com/walis85300/json-to-csv-lol.git"
 
 [tool.poetry.scripts]
-json-to-csv-lol = "json_to_csv-lol.main:app"
+json-to-csv-lol = "json_to_csv_lol.main:app"
 
 [tool.poetry.dependencies]
 python = "^3.10"
